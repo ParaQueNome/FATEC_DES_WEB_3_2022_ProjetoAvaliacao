@@ -31,8 +31,9 @@ def cadastrar(request):
         return render(request,'cadastro.html', contexto)
 
 def listar(request):
-    lista = AlunoModel
-    contexto = {'Alunos': lista.nome}
+    lista = AlunoModel.objects.filter()
+    if len(lista) > 0:
+        contexto = {'Alunos': lista }
     
     return render(request,'alunos.html', contexto)
     
